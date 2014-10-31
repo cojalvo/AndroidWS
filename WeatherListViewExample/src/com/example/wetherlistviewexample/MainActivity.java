@@ -13,13 +13,13 @@ import android.widget.ListView;
 
 public class MainActivity extends Activity {
 	
-	private IWeatherController controller;
+	private IAppLogic controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        controller =  new Weathercontroller();
+        controller =  new AppLogic();
         ListView  lv = (ListView) findViewById(R.id.listView1);
         if(lv!=null)
         {
