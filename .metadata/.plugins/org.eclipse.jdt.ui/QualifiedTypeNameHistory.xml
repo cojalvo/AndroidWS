@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
+<fullyQualifiedTypeName name="com.example.testapp.WhetherItem"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="com.example.testapp.IWeatherController"/>
+<fullyQualifiedTypeName name="com.example.testapp.Weathercontroller"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="com.example.testapp.WeatherListBaseAdapter"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.widget.ImageView"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="com.example.testapp.WeatherListBaseAdapter.ViewHolder"/>
+<fullyQualifiedTypeName name="com.example.testapp.R.id"/>
+<fullyQualifiedTypeName name="com.example.testapp.R.drawable"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="com.example.testapp.MainActivity"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.example.testapp.WeatherItem"/>
+<fullyQualifiedTypeName name="com.example.testapp.IDataAcces"/>
+<fullyQualifiedTypeName name="com.example.testapp.DAO"/>
+</qualifiedTypeNameHistroy>

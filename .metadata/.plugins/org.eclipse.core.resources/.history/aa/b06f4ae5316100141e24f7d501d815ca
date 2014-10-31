@@ -1,0 +1,8 @@
+package com.example.testapp;
+
+import java.util.List;
+
+public interface IWeatherController
+{
+	List<WeatherItem> GetWeather();
+}
