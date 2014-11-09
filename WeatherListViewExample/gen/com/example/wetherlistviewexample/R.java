@@ -1675,7 +1675,7 @@ containing a value of this type.
         public static final int icon=0x7f090028;
         public static final int ifRoom=0x7f090016;
         public static final int image=0x7f090025;
-        public static final int imageView1=0x7f090045;
+        public static final int imageView1=0x7f090043;
         public static final int listMode=0x7f09000a;
         public static final int listView1=0x7f090041;
         public static final int list_item=0x7f090027;
@@ -1703,9 +1703,9 @@ containing a value of this type.
         public static final int split_action_bar=0x7f090004;
         public static final int submit_area=0x7f09003e;
         public static final int tabMode=0x7f09000c;
-        public static final int textView_day=0x7f090043;
-        public static final int textView_degree=0x7f090044;
-        public static final int textView_description=0x7f090042;
+        public static final int textView_day=0x7f090045;
+        public static final int textView_degree=0x7f090042;
+        public static final int textView_description=0x7f090044;
         public static final int title=0x7f090029;
         public static final int top=0x7f09001f;
         public static final int up=0x7f090001;
@@ -1763,8 +1763,9 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030015;
         public static final int abc_simple_dropdown_hint=0x7f030016;
         public static final int activity_main=0x7f030017;
-        public static final int list_view_item=0x7f030018;
-        public static final int support_simple_spinner_dropdown_item=0x7f030019;
+        public static final int l1=0x7f030018;
+        public static final int list_view_item=0x7f030019;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

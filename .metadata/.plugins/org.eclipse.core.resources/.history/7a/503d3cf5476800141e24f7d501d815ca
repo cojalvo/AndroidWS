@@ -1,0 +1,34 @@
+package com.example.intentexample;
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.EditText;
+
+public class SecondActivity extends Activity
+{
+	
+	private static final int PICK_IMAGE = 1;
+	  @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_main);
+	    }
+	  
+	  @Override
+	  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	      if(requestCode == PICK_IMAGE && data != null && data.getData() != null) {
+	          Uri _uri = data.getData();
+
+	          //User had pick an image.
+	          Cursor cursor = getContentResolver().query(_uri, new String[] { android.provider.MediaStore.Images.ImageColumns.DATA }, null, null, null);
+	          cursor.moveToFirst();
+
+	          //Link to the image
+	          final String imageFilePath = cursor.getString(0);
+	          cursor.close();
+	      }
+	      super.onActivityResult(requestCode, resultCode, data);
+	  }
+
+}
