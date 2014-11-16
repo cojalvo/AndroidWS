@@ -16,7 +16,7 @@ public class AddFriendActivity extends Activity
 	private EditText phoneEt;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add);
 		nameEt = (EditText) findViewById(R.id.editTextName);
@@ -30,7 +30,6 @@ public class AddFriendActivity extends Activity
     	String phone = phoneEt.getText().toString();
     	// Prepare data intent 
     	  Intent data = new Intent();
-    	  //Put the extras.
     	  data.putExtra(AppConst.ExtrasFriendName, name);
     	  data.putExtra(AppConst.ExtrasFriendPhone,phone);
     	  // Activity finished ok, return the data

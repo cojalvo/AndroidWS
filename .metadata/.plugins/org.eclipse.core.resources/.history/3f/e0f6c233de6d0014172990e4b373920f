@@ -33,14 +33,10 @@ public class MainActivity extends Activity implements
 		TextView tv = (TextView) findViewById(R.id.textViewUserName);
 		tv.setText(controller.getUserName());
 		ListView lv = (ListView) findViewById(R.id.listViewFriends);
-		//handle the list view 
 		if (lv != null) {
-			//create the adapter and get the data from the controller.
 			adapter = new FriendListBaseAdapter(this,
 					controller.getAllFriends());
 			lv.setAdapter(adapter);
-			//register for Long item click listener.
-			//When the user will do a long press on item in the list, the item will be removed.
 			lv.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 				@Override

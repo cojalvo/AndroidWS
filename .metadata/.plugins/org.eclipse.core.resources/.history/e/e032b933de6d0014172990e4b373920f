@@ -59,38 +59,22 @@ public class MainController {
 		getAllFriends();
 	}
 
-	/*
-	 * Add friend to the data source.
-	 */
 	public void addFriend(Friend f) {
 		try {
-			//open the connection to the DAO
 			dao.open();
-			//add the friend to the data base and use the returned friend and add it ti the local cache.
-			//the friend that returned from the DAO contain the id of the entity.
 			Friend retFriend = dao.addFriend(f);
 			dao.close();
 			friends.add(retFriend);
-			//update what ever it will be.
 			invokeDataSourceChanged();
 		} catch (Exception e) {
 			Log.e("MainController",e.getMessage());
 		}
 	}
 
-	/*
-	 * remove friend from the data source.
-	 * 
-	 */
 	public void removeFriend(Friend f) {
-		
-		//open the database connection
 		dao.open();
-		//remove the friend from the database.
 		dao.removeFriend(f);
-		//remove from the local cache.
 		removeFronCache(f);
-		//close the connection.
 		dao.close();
 		invokeDataSourceChanged();
 	}

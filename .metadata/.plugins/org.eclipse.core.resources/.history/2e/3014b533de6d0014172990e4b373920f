@@ -10,6 +10,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import Common.Addres;
 import Common.Friend;
 import Common.User;
 
@@ -115,6 +116,11 @@ public class DAO implements IdataAcces {
 		user.setUserName(userName);
 		user.setPassword(password);
 		user.setMail("Cadan85@gmail.com");
+		Addres add = new Addres();
+		add.setCity("Jerusalem");
+		add.setStreet("Yafo");
+		add.setStreetNumber(35);
+		user.setAddres(add);
 		return user;
 	}
 
