@@ -1,0 +1,8 @@
+package Common;
+
+public class AppConst 
+{
+	public static  final String SharedPrefsName = "co.il.shenkar.PersitenceExamplePrefs";
+	public static  final String SharedPrefs_IsLogin = "IsLogin";
+
+}

@@ -1,0 +1,32 @@
+package com.example.persistenceexample;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import data.DAO;
+import data.IdataAcces;
+import Common.AppConst;
+import Common.User;
+
+public class LoginController 
+{
+	IdataAcces dao;
+	Context context;
+	public LoginController(Context context)
+	{
+		dao =DAO.getInstatnce();
+		this.context = context;
+	}
+	public boolean isLogedIn()
+	{
+		SharedPreferences prefs = context.getSharedPreferences(AppConst.SharedPrefsName, 0);
+		if(prefs!=null)
+		{
+			return prefs.getBoolean(AppConst.SharedPrefs_IsLogin, false);
+		}
+		return false;
+	}
+	public User getUser(String userName,String password)
+	{
+		return dao.getUser(userName, password);
+	}
+}

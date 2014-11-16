@@ -1,0 +1,20 @@
+package com.example.persistenceexample;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+
+public class AppUtils 
+{
+	public static <T> void  writePrefs(Context c,String prefsName,String key,T value) throws Exception
+	{
+		if(c == null || value == null) throw new Exception();
+		SharedPreferences settings = c.getSharedPreferences(prefsName, 0);
+		Editor editor = settings.edit();
+		if(value.getClass().isAssignableFrom(Boolean.TYPE))
+		{
+			editor.putBoolean(key, (Boolean) value);
+		}
+	}
+
+}

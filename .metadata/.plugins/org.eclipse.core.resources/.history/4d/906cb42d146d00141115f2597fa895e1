@@ -1,0 +1,17 @@
+package com.example.persistenceexample;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Common.Friend;
+import android.content.Context;
+
+public class MainController 
+{
+	private List<Friend> friends = new ArrayList<Friend>();
+	private Context context;
+	public MainController(Context context)
+	{
+		this.context = context;
+	}
+}

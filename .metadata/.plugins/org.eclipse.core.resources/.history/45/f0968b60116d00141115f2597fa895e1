@@ -1,0 +1,9 @@
+package data;
+
+import Common.User;
+
+public interface IdataAcces 
+{
+	User getUser(String userName,String password);
+
+}

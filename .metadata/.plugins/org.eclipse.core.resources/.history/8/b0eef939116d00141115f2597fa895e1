@@ -1,0 +1,68 @@
+package data;
+
+import java.util.List;
+
+import android.content.Context;
+import Common.Addres;
+import Common.Friend;
+import Common.User;
+
+public class DAO implements IdataAcces
+{
+	private static DAO instace;
+	private Context context;
+	private FriendsDBHelper dbHelper;
+	private DAO(Context context)
+	{
+		this.context = context;
+		dbHelper =  new FriendsDBHelper(context);
+	}
+	
+	public static DAO getInstatnce(Context context)
+	{
+		if(instace == null)
+			instace=new DAO(context);
+		return instace;
+	}
+	
+	public void addFriend(Friend friend)
+	{
+		
+	}
+	
+	public void removeFriend(Friend friend)
+	{
+		
+	}
+	public Friend getFriend(int id)
+	{
+		
+	}
+	
+	public List<Friend> getAllFriends()
+	{
+		
+	}
+
+	@Override
+	public User getUser(String userName, String password) {
+		// Check in the storage (In the cloud, the database etc..)
+		//if exists, return the crate and return the user object,otherwise return null.
+		
+		User user = new User();
+		user.setUserName(userName);
+		user.setPassword(password);
+		user.setMail("Cadan85@gmail.com");
+		Addres add = new Addres();
+		add.setCity("Jerusalem");
+		add.setStreet("Yafo");
+		add.setStreetNumber(35);
+		user.setAddres(add);
+		return user;
+	}
+	
+	
+	
+	
+
+}

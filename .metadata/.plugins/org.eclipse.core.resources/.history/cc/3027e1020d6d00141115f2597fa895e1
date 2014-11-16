@@ -1,0 +1,36 @@
+package data;
+
+import Common.Addres;
+import Common.User;
+
+public class DAO implements IdataAcces
+{
+	private static DAO instace;
+	private DAO(){}
+	
+	public static DAO getInstatnce()
+	{
+		if(instace == null)
+			instace=new DAO();
+		return instace;
+	}
+
+	@Override
+	public User getUser(String userName, String password) {
+		// Check in the storage 
+		//if exists, return the crate and return the user object,otherwise return null.
+		User user = new User();
+		user.setUserName(userName);
+		user.setPassword(password);
+		user.setMail("Cadan85@gmail.com");
+		Addres add = new Addres();
+		add.setCity("Jerusalem");
+		add.setStreet("Yafo");
+		add.setStreetNumber(35);
+		user.setAddres(add);
+		return user;
+	}
+	
+	
+
+}

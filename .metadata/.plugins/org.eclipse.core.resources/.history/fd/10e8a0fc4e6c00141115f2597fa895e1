@@ -1,0 +1,12 @@
+package com.example.persistenceexample;
+
+import Common.User;
+
+public class Controller 
+{
+	public User getUser(String userName,String password)
+	{
+		
+		return null;
+	}
+}

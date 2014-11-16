@@ -1,0 +1,83 @@
+package com.example.persistenceexample;
+
+import Common.AppConst;
+import Common.User;
+import android.support.v7.app.ActionBarActivity;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+
+
+public class MainActivity extends ActionBarActivity {
+
+	private EditText userNameEditText;
+	private EditText passwordEditText;
+	private LoginController controller;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //get the shared preference.
+        SharedPreferences settings = getSharedPreferences(AppConst.SharedPrefsName,0);
+        if(settings !=null)
+        {
+        	//check if the user is login.
+        	Boolean isLogin = settings.getBoolean(AppConst.SharedPrefsName, false);
+        	if(isLogin)
+        	{
+        		//Start the main activity.
+        	}
+        }
+        
+        //get the useName and password edit text view 
+        userNameEditText = (EditText) findViewById(R.id.editTextUserName);
+        passwordEditText = (EditText) findViewById(R.id.editTextPassword);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    public void logInClicked(View v)
+    {
+    	//get the password and the user name form the edit text.
+    	if(userNameEditText!=null && passwordEditText!=null)
+    	{
+    		String userName  = userNameEditText.getText().toString();
+    		String pass = passwordEditText.getText().toString();
+    		User u = controller.getUser(userName,pass);
+    		//the user is exists, set the IsLogin flag to true.
+    		if(u!=null)
+    		{
+    	        SharedPreferences settings = getSharedPreferences(AppConst.SharedPrefsName,0);
+    	        Editor editor = settings.edit();
+    	        editor.putBoolean(AppConst.SharedPrefs_IsLogin, true);
+    	        editor.putString(AppConst.SharedPrefs_UserName, u.getUserName());
+    	        //start the main activity.
+    		}
+    		
+    	}
+		
+	}
+}

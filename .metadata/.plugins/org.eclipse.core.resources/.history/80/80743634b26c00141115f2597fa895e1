@@ -1,0 +1,13 @@
+package com.example.persistenceexample;
+
+import android.content.Context;
+
+public class Maincontroller 
+{
+	private Context context;
+	public Maincontroller(Context context)
+	{
+		this.context = context;
+	}
+
+}

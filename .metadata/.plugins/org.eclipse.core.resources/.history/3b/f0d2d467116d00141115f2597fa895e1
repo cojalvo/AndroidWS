@@ -1,0 +1,12 @@
+package data;
+
+import android.database.SQLException;
+import Common.User;
+
+public interface IdataAcces 
+{
+	User getUser(String userName,String password);
+
+	void open() throws SQLException;
+
+}

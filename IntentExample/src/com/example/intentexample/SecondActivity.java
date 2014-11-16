@@ -64,7 +64,7 @@ public class SecondActivity extends Activity {
 						stream.close();
 					} catch (IOException e) {
 						e.printStackTrace();
-						Log.e(TAG,e.getMessage());
+						
 					}
 			}
 		super.onActivityResult(requestCode, resultCode, data);
