@@ -14,8 +14,8 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 public class MainController {
-	// The data model, act as a cache 
-	private List<Friend> friends;
+	// The data model, act as a cache
+	private List<Friend> friends = new ArrayList<Friend>();
 	private Context context;
 	private IdataAcces dao;
 	private String user;
@@ -74,20 +74,10 @@ public class MainController {
 	public void removeFriend(Friend f) {
 		dao.open();
 		dao.removeFriend(f);
-		removeFronCache(f);
 		dao.close();
 		invokeDataSourceChanged();
 	}
 	
-	public void removeFronCache(Friend f)
-	{
-		int i =0;
-		for(;i<friends.size();i++)
-		{
-			if(friends.get(i).getId() == f.getId()) break;
-		}
-		friends.remove(i);
-	}
 	public void registerOnDataSourceChanged(OnDataSourceChangeListener listener)
 	{
 		if(listener!=null)

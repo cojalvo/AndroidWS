@@ -72,7 +72,7 @@ public class DAO implements IdataAcces {
 				.getColumnIndex(FriendEntry.COLUMN_FRIEND_NAME)));
 		f.setPhoneNumber(cursor.getString(cursor
 				.getColumnIndex(FriendEntry.COLUMN_FRIEND_PHONE_NUMBER)));
-		return f;
+		return null;
 	}
 
 	@Override

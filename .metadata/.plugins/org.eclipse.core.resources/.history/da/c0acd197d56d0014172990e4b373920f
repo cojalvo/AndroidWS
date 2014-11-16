@@ -24,7 +24,7 @@ public class FriendsDBHelper extends SQLiteOpenHelper {
 				+ FriendEntry.TABLE_NAME + " (" + FriendEntry._ID
 				+ " INTEGER PRIMARY KEY," + FriendEntry.COLUMN_FRIEND_NAME
 				+ " TEXT NOT NULL, " + FriendEntry.COLUMN_FRIEND_PHONE_NUMBER
-				+ " TEXT NOT NULL)";
+				+ " TEXT NOT NULL, " + " );";
 		db.execSQL(SQL_CREATE_LOCATION_TABLE);
 	}
 

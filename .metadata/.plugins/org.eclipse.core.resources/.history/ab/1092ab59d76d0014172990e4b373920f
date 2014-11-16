@@ -15,7 +15,7 @@ import android.util.Log;
 
 public class MainController {
 	// The data model, act as a cache 
-	private List<Friend> friends;
+	private List<Friend> friends = new ArrayList<Friend>();
 	private Context context;
 	private IdataAcces dao;
 	private String user;
