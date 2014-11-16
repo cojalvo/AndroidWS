@@ -46,6 +46,7 @@ public class FriendListBaseAdapter extends BaseAdapter
 	
 	public void UpdateDataSource(List<Friend> items)
 	{
+		if(items ==null) return; //TODO Decide how to deal with it (Maybe an exception??)
 		this.items= items;
 	}
 

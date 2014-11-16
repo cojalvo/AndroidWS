@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="10dp" >
 
@@ -10,8 +10,9 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add friend"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
+        android:text="@string/add_friend"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/my_et_background"
         android:ems="10"
-        android:hint="Name"
+        android:hint="@string/name"
         android:padding="5dp" >
 
         <requestFocus />
@@ -30,17 +31,20 @@
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/my_et_background"
         android:layout_marginTop="10dp"
+        android:background="@drawable/my_et_background"
         android:ems="10"
-        android:hint="Phone"
+        android:hint="@string/phone"
         android:padding="5dp" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="301dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/blue_button"
         android:onClick="okClicked"
-        android:text="Ok" />
+        android:text="@string/ok"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

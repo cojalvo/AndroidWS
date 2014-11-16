@@ -49,13 +49,19 @@ public class DAO implements IdataAcces {
 	public Friend addFriend(Friend friend) {
 		if (friend == null)
 			return null;
+		//build the content values.
 		ContentValues values = new ContentValues();
 		values.put(FriendEntry.COLUMN_FRIEND_NAME, friend.getFriendName());
 		values.put(FriendEntry.COLUMN_FRIEND_PHONE_NUMBER, friend.getPhoneNumber());
+		
+		//do the insert.
 		long insertId = database.insert(FriendEntry.TABLE_NAME, null, values);
+		
+		//get the entity from the data base - extra validation, entity was insert properly.
 		Cursor cursor = database.query(FriendEntry.TABLE_NAME, friendsColumns,
 				FriendEntry._ID + " = " + insertId, null, null, null, null);
 		cursor.moveToFirst();
+		//create the friend object from the cursor.
 		Friend newFriend = cursorToFriend(cursor);
 		cursor.close();
 		return newFriend;
@@ -103,7 +109,7 @@ public class DAO implements IdataAcces {
 	@Override
 	public User getUser(String userName, String password) {
 		// Check in the storage (In the cloud, the database etc..)
-		// if exists, return the crate and return the user object,otherwise
+		// if exists, return the user object,otherwise
 		// return null.
 
 		User user = new User();

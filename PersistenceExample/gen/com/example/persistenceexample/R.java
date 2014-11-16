@@ -1651,7 +1651,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090030;
         public static final int action_mode_bar_stub=0x7f09002f;
         public static final int action_mode_close_button=0x7f090022;
-        public static final int action_settings=0x7f09004d;
+        public static final int action_settings=0x7f09004b;
         public static final int activity_chooser_view_content=0x7f090023;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
@@ -1664,11 +1664,10 @@ containing a value of this type.
         public static final int dialog=0x7f090019;
         public static final int disableHome=0x7f09000d;
         public static final int dropdown=0x7f09001a;
-        public static final int editText1=0x7f090046;
         public static final int editTextName=0x7f090042;
-        public static final int editTextPassword=0x7f090045;
+        public static final int editTextPassword=0x7f090046;
         public static final int editTextPhone=0x7f090043;
-        public static final int editTextUserName=0x7f090047;
+        public static final int editTextUserName=0x7f090045;
         public static final int edit_query=0x7f090035;
         public static final int end=0x7f09001c;
         public static final int expand_activities_button=0x7f090024;
@@ -1679,8 +1678,7 @@ containing a value of this type.
         public static final int ifRoom=0x7f090016;
         public static final int image=0x7f090025;
         public static final int listMode=0x7f09000a;
-        public static final int listView1=0x7f09004a;
-        public static final int listViewFriends=0x7f090049;
+        public static final int listViewFriends=0x7f090048;
         public static final int list_item=0x7f090027;
         public static final int middle=0x7f09001d;
         public static final int never=0x7f090017;
@@ -1707,9 +1705,9 @@ containing a value of this type.
         public static final int submit_area=0x7f09003e;
         public static final int tabMode=0x7f09000c;
         public static final int textView1=0x7f090041;
-        public static final int textViewFriendName=0x7f09004b;
-        public static final int textViewFriendPhone=0x7f09004c;
-        public static final int textViewUserName=0x7f090048;
+        public static final int textViewFriendName=0x7f090049;
+        public static final int textViewFriendPhone=0x7f09004a;
+        public static final int textViewUserName=0x7f090047;
         public static final int title=0x7f090029;
         public static final int top=0x7f09001f;
         public static final int up=0x7f090001;
@@ -1830,9 +1828,16 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000d;
         public static final int action_settings=0x7f0a0011;
+        public static final int add_friend=0x7f0a0013;
         public static final int app_name=0x7f0a000f;
         public static final int hello_world=0x7f0a0010;
         public static final int hi=0x7f0a0012;
+        public static final int log_in=0x7f0a0017;
+        public static final int name=0x7f0a0016;
+        public static final int ok=0x7f0a0015;
+        public static final int password=0x7f0a0019;
+        public static final int phone=0x7f0a0014;
+        public static final int user_name=0x7f0a0018;
     }
     public static final class style {
         /** 

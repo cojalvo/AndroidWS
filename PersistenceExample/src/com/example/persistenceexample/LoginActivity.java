@@ -26,6 +26,7 @@ public class LoginActivity extends ActionBarActivity {
         //ask the controller if the user is logged in.
         if(controller.isLogedIn())
         {
+        	//In case the user is logged in start the main activity.
         	startMainActivity();
         	return;
         }
