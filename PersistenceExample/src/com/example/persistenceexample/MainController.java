@@ -1,6 +1,8 @@
 package com.example.persistenceexample;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import data.DAO;
@@ -15,7 +17,7 @@ import android.util.Log;
 
 public class MainController {
 	// The data model, act as a cache 
-	private List<Friend> friends;
+	private HashMap<Integer,Friend> friends;
 	private Context context;
 	private IdataAcces dao;
 	private String user;
@@ -41,16 +43,24 @@ public class MainController {
 
 	public List<Friend> getAllFriends() {
 		try {
-			if (friends != null)
-				return friends;
+			if (friends != null)	
+				return new ArrayList<Friend>(friends.values());
 			dao.open();
 			List<Friend> fl = dao.getAllFriends();
 			dao.close();
-			friends = fl;
+			PopulatefriendsCache(fl);
 			return fl;
 		} catch (Exception e) {
 			// in case of error, return empty list.
 			return new ArrayList<Friend>();
+		}
+	}
+	
+	private void PopulatefriendsCache(List<Friend> friendsList )
+	{
+		friends =  new HashMap<Integer, Friend>();
+		for (Friend friend : friendsList) {
+			friends.put(friend.getId(), friend);
 		}
 	}
 
@@ -70,7 +80,10 @@ public class MainController {
 			//the friend that returned from the DAO contain the id of the entity.
 			Friend retFriend = dao.addFriend(f);
 			dao.close();
-			friends.add(retFriend);
+			if(retFriend == null) return;
+			if(friends.containsKey(retFriend.getId())) return;//TODO decide the logic, update? exception?
+			
+			friends.put(retFriend.getId(), retFriend);
 			//update what ever it will be.
 			invokeDataSourceChanged();
 		} catch (Exception e) {
@@ -97,12 +110,8 @@ public class MainController {
 	
 	public void removeFronCache(Friend f)
 	{
-		int i =0;
-		for(;i<friends.size();i++)
-		{
-			if(friends.get(i).getId() == f.getId()) break;
-		}
-		friends.remove(i);
+		if(friends.containsKey(f.getId()))
+			friends.remove(f.getId());
 	}
 	public void registerOnDataSourceChanged(OnDataSourceChangeListener listener)
 	{

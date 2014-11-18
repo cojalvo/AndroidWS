@@ -1,0 +1,131 @@
+package com.example.persistenceexample;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+
+import data.DAO;
+import data.IdataAcces;
+
+import Common.AppConst;
+import Common.Friend;
+import Common.OnDataSourceChangeListener;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+
+public class MainController {
+	// The data model, act as a cache 
+	private HashMap<Integer,Friend> friends;
+	private Context context;
+	private IdataAcces dao;
+	private String user;
+	
+	//observers list.
+	private List<OnDataSourceChangeListener> dataSourceChangedListenrs = new ArrayList<OnDataSourceChangeListener>();
+
+	public MainController(Context context) {
+		this.context = context;
+		dao = DAO.getInstatnce(context.getApplicationContext());
+	}
+
+	public String getUserName() {
+		if (user != null)
+			return user;
+		SharedPreferences settings = context.getSharedPreferences(
+				AppConst.SharedPrefsName, 0);
+		if (settings == null)
+			return "";
+		user = settings.getString(AppConst.SharedPrefs_UserName, "");
+		return user;
+	}
+
+	public Collection<Friend> getAllFriends() {
+		try {
+			if (friends != null)	
+				return friends.values();
+			dao.open();
+			List<Friend> fl = dao.getAllFriends();
+			dao.close();
+			PopulatefriendsCache(fl);
+			return fl;
+		} catch (Exception e) {
+			// in case of error, return empty list.
+			return new ArrayList<Friend>();
+		}
+	}
+	
+	private void PopulatefriendsCache(List<Friend> friendsList )
+	{
+		friends =  new HashMap<Integer, Friend>();
+		for (Friend friend : friendsList) {
+			friends.put(friend.getId(), friend);
+		}
+	}
+
+	public void refreshData() {
+		friends = null;
+		getAllFriends();
+	}
+
+	/*
+	 * Add friend to the data source.
+	 */
+	public void addFriend(Friend f) {
+		try {
+			//open the connection to the DAO
+			dao.open();
+			//add the friend to the data base and use the returned friend and add it ti the local cache.
+			//the friend that returned from the DAO contain the id of the entity.
+			Friend retFriend = dao.addFriend(f);
+			dao.close();
+			if(retFriend == null) return;
+			if(friends.containsKey(retFriend.getId())) return;
+				friends.put(retFriend.getId(), retFriend);
+			//update what ever it will be.
+			invokeDataSourceChanged();
+		} catch (Exception e) {
+			Log.e("MainController",e.getMessage());
+		}
+	}
+
+	/*
+	 * remove friend from the data source.
+	 * 
+	 */
+	public void removeFriend(Friend f) {
+		
+		//open the database connection
+		dao.open();
+		//remove the friend from the database.
+		dao.removeFriend(f);
+		//remove from the local cache.
+		removeFronCache(f);
+		//close the connection.
+		dao.close();
+		invokeDataSourceChanged();
+	}
+	
+	public void removeFronCache(Friend f)
+	{
+		if(friends.containsKey(f.getId()))
+			friends.remove(f.getId());
+	}
+	public void registerOnDataSourceChanged(OnDataSourceChangeListener listener)
+	{
+		if(listener!=null)
+			dataSourceChangedListenrs.add(listener);
+	}
+	public void unRegisterOnDataSourceChanged(OnDataSourceChangeListener listener)
+	{
+		if(listener!=null)
+			dataSourceChangedListenrs.remove(listener);
+	}
+	public void invokeDataSourceChanged()
+	{
+		for (OnDataSourceChangeListener listener : dataSourceChangedListenrs) {
+			listener.DataSourceChanged();
+		}
+	}
+}

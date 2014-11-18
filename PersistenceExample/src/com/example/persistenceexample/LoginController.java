@@ -22,6 +22,7 @@ public class LoginController
 		SharedPreferences prefs = context.getSharedPreferences(AppConst.SharedPrefsName, 0);
 		if(prefs!=null)
 		{
+			
 			return prefs.getBoolean(AppConst.SharedPrefs_IsLogin, false);
 		}
 		return false;
