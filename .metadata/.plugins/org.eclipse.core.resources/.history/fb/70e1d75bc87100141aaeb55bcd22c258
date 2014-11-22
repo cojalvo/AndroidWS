@@ -1,0 +1,48 @@
+package il.ac.shenkar.broadcastrecieverexample.bl;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.os.Bundle;
+
+public class AlarmHelper {
+	public void setAlarm(Context c,Alarm alarm) {
+		Alarm a = new Alarm();
+		a.setReciever(NotificationBroadCastReciever.class);
+		
+	}
+
+	public void cancelAlarm() {
+
+	}
+
+	public class Alarm {
+		private String action;
+		private Bundle extras;
+		private Class<?> reciever;
+
+		public String getAction() {
+			return action;
+		}
+
+		public void setAction(String action) {
+			this.action = action;
+		}
+
+		public Bundle getExtras() {
+			return extras;
+		}
+
+		public void setExtras(Bundle extras) {
+			this.extras = extras;
+		}
+
+		public Class<?> getReciever() {
+			return reciever;
+		}
+
+		public void setReciever(Class<?> reciever) {
+			this.reciever = reciever;
+		}
+
+	}
+}

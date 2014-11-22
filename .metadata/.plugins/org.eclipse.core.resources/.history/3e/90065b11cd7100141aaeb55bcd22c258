@@ -1,0 +1,5 @@
+package il.ac.shenkar.broadcastrecieverexample.bl;
+
+public class Alarm {
+
+}

@@ -1,0 +1,63 @@
+package il.ac.shenkar.broadcastrecieverexample.bl;
+
+import android.content.Context;
+import android.os.Bundle;
+
+public class AlarmHelper {
+	public void setAlarm(Context c, Alarm alarm) {
+
+	}
+
+	public void cancelAlarm() {
+
+	}
+
+	public class Alarm {
+		private String action;
+		long triggerAtMillis;
+		long intervalMillis;
+		private Bundle extras;
+		private Class<?> reciever;
+
+		public long getTriggerAtMillis() {
+			return triggerAtMillis;
+		}
+
+		public void setTriggerAtMillis(long triggerAtMillis) {
+			this.triggerAtMillis = triggerAtMillis;
+		}
+
+		public long getIntervalMillis() {
+			return intervalMillis;
+		}
+
+		public void setIntervalMillis(long intervalMillis) {
+			this.intervalMillis = intervalMillis;
+		}
+
+		public String getAction() {
+			return action;
+		}
+
+		public void setAction(String action) {
+			this.action = action;
+		}
+
+		public Bundle getExtras() {
+			return extras;
+		}
+
+		public void setExtras(Bundle extras) {
+			this.extras = extras;
+		}
+
+		public Class<?> getReciever() {
+			return reciever;
+		}
+
+		public void setReciever(Class<?> reciever) {
+			this.reciever = reciever;
+		}
+
+	}
+}

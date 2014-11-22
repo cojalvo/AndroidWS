@@ -1,0 +1,22 @@
+package il.ac.shenkar.broadcastrecieverexample.bl;
+
+import android.content.Context;
+
+public class AlarmHelper 
+{
+	public void setAlarm()
+	{
+		
+	}
+	
+	public void cancelAlarm()
+	{
+		
+	}
+	
+	public class Alarm
+	{
+		private String action;
+		
+	}
+}

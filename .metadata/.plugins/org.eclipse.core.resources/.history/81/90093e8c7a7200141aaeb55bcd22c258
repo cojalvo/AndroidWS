@@ -1,0 +1,6 @@
+package il.ac.shenkar.broadcastrecieverexample.common;
+
+public class AppConst {
+	public static final String Extra_Message = "Message";
+
+}

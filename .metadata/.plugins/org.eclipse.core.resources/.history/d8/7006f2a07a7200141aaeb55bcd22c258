@@ -1,0 +1,27 @@
+package il.ac.shenkar.broadcastrecieverexample.bl;
+
+
+import il.ac.shenkar.broadcastrecieverexample.common.Alarm;
+
+import java.util.Date;
+
+import android.content.Context;
+import android.os.Bundle;
+
+public class MainController {
+	private Context context;
+	private AlarmHelper alarmHelper;
+
+	public MainController(Context context) {
+		this.context = context;
+		alarmHelper = new AlarmHelper();
+	}
+	
+	public void CreateAlarm(String message,Date when)
+	{
+		Alarm alarm  =  new Alarm();
+		alarm.setId(0);
+		Bundle extras = new Bundle();
+		
+	}
+}
