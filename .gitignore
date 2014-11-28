@@ -14,3 +14,7 @@
 *.class
 
 *.class
+
+.metadata/
+
+.metadata/.plugins/org.eclipse.cdt.core/.log
